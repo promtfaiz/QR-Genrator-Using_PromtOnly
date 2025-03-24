@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generate QR codes for free with FZBillinG's QR Generator. Create custom QR codes for URLs, text, and more in seconds.">
+    <meta name="keywords" content="QR Generator, Free QR Code, QR Code Creator, QR Code Maker, QR Code Online">
+    <meta name="author" content="FZBillinG">
+    <meta property="og:title" content="QR Generator By FZBillinG">
+    <meta property="og:description" content="Generate QR codes for free with FZBillinG's QR Generator. Create custom QR codes for URLs, text, and more in seconds.">
+    <meta property="og:image" content="https://qrgenrator.fzbilling.tech/images/FZBillinG-Logo.png">
+    <meta property="og:url" content="https://qrgenrator.fzbilling.tech">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QR Generator By FZBillinG">
+    <meta name="twitter:description" content="Generate QR codes for free with FZBillinG's QR Generator. Create custom QR codes for URLs, text, and more in seconds.">
+    <meta name="twitter:image" content="https://qrgenrator.fzbilling.tech/images/FZBillinG-Logo.png">
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "QR Generator By FZBillinG",
+        "description": "Generate QR codes for free with FZBillinG's QR Generator. Create custom QR codes for URLs, text, and more in seconds.",
+        "url": "https://qrgenrator.fzbilling.tech",
+        "image": "https://qrgenrator.fzbilling.tech/images/FZBillinG-Logo.png",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <title>QR Generator By FZBillinG - Free QR Code Creator</title>
+    <style>
+        /* Existing CSS styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #f5f3f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            color: #4e342e; /* Coffee color */
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 150px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            border: 2px solid #6d4c41; /* Coffee border */
+        }
+
+        .form-section {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .form-section h2 {
+            margin-bottom: 15px;
+            color: #4e342e; /* Coffee color */
+            font-size: 1.8rem;
+        }
+
+        input, button, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #6d4c41; /* Coffee border */
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+            color: #4e342e; /* Coffee text color */
+            background-color: #f5f3f0; /* Off-white background */
+        }
+
+        input:focus, select:focus {
+            border-color: #4e342e; /* Coffee focus */
+            outline: none;
+        }
+
+        button {
+            background-color: #6d4c41; /* Coffee color */
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #5d4037; /* Darker coffee color */
+        }
+
+        .qr-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-left: 2px solid #6d4c41; /* Coffee color for the divider */
+            padding-left: 20px;
+        }
+
+        #qrcode {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #qrcodeImage {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #6d4c41; /* Coffee color for border */
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .action-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        #downloadBtn {
+            display: inline-block;
+            background-color: #6d4c41; /* Coffee color */
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(109, 76, 65, 0.2);
+            margin-left: 50px;
+        }
+
+        #downloadBtn:hover {
+            background-color: #5d4037; /* Darker coffee color */
+            box-shadow: 0 7px 20px rgba(109, 76, 65, 0.3);
+            transform: translateY(-3px);
+        }
+
+        #downloadBtn:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 10px rgba(109, 76, 65, 0.1);
+        }
+
+        /* Mobile responsive styling */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .form-section, .qr-section {
+                margin-right: 0;
+                width: 100%;
+                padding-left: 0;
+                border-left: none;
+            }
+
+            .form-section {
+                margin-bottom: 20px;
+            }
+
+            button, input, select {
+                font-size: 16px;
+                padding: 14px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #downloadBtn {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Centered Logo at the Top -->
+    <img src="images/FZBillinG Logo.png" alt="FZBillinG Logo" class="logo">
+
+    <div class="container">
+        <div class="form-section">
+            <h2>QR Code Generator</h2>
+            <form id="qrForm">
+                <input type="url" id="linkInput" placeholder="Enter URL (https://example.com)" required>
+                <input type="number" id="sizeInput" placeholder="QR Code Size (e.g., 200)" min="100" max="500" value="200">
+                <select id="colorInput">
+                    <option value="#000000">Black</option>
+                    <option value="#FF0000">Red</option>
+                    <option value="#00FF00">Green</option>
+                    <option value="#0000FF">Blue</option>
+                </select>
+                <button type="submit">Generate QR Code</button>
+            </form>
+        </div>
+
+        <div class="qr-section">
+            <h3>Your QR Code:</h3>
+            <div id="qrcode">
+                <div id="qrcodeImage"></div>
+                <div class="action-buttons">
+                    <a id="downloadBtn">Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include QRCode.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script>
+        document.getElementById('qrForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const link = document.getElementById('linkInput').value;
+            const size = parseInt(document.getElementById('sizeInput').value);
+            const color = document.getElementById('colorInput').value;
+
+            const qrContainer = document.getElementById('qrcodeImage');
+            qrContainer.innerHTML = ""; // Clear previous QR code
+
+            const qrCode = new QRCode(qrContainer, {
+                text: link,
+                width: size,
+                height: size,
+                colorDark: color,
+                colorLight: "#ffffff", /* White background */
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            document.getElementById('qrcode').style.display = "block";
+
+            // Download Button
+            const downloadBtn = document.getElementById('downloadBtn');
+            downloadBtn.style.display = "inline-block";
+            const qrCanvas = qrContainer.querySelector('canvas');
+            const imageURL = qrCanvas.toDataURL("image/png");
+            downloadBtn.href = imageURL;
+            downloadBtn.download = 'qr-code.png';
+        });
+    </script>
+
+</body>
+</html>
